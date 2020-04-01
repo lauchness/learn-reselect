@@ -1,0 +1,8 @@
+.movies-list__list {
+  padding: 0;
+  list-style: none;
+  display: flex;
+  width: 100%;
+  overflow-y: hidden;
+  overflow-x: scroll;
+}
