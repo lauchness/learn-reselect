@@ -11,3 +11,12 @@ This app will be a "movies" app, with a large number of movies (coming from the 
 Initially the app will be set up to display movies by category, and have a search functionality. All of this will be implemented without making use of reselect, and will likely perform very poorly.
 
 Each exercise will be outlined in a markdown file in the `/exercises` directory with the naming convention `<Exercise Number>.md`. The completed files will be stored in the `/final` as a reference for you as you work.
+
+
+### TODO:
+1. implementing reselect -> moving to functions
+2. using createSelector
+3. flux
+4. redux basics
+5. redux thunk
+6. creating new slice of state
