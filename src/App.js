@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from 'react-redux';
 
 import './App.css';
 import MoviesList from './components/MoviesList';
-import { setSearchTerm } from './store/actions';
+import { searchSetTerm } from './store/search/search.actions';
 
 function App() {
   const dispatch = useDispatch();
@@ -39,7 +39,7 @@ function App() {
     if (!event) {
       return;
     }
-    dispatch(setSearchTerm(event.target.value));
+    dispatch(searchSetTerm(event.target.value));
   };
 
   return (
