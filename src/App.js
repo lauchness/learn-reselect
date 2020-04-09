@@ -10,11 +10,7 @@ import {
   loadMoviesSuccessful,
 } from './store/movies/movies.actions';
 import {
-  getMoviesLoadingState,
-  getSearchMovies,
-  getDramas,
-  getComedies,
-  getItalianMovies,
+  selectMoviesState
 } from './store/movies/movies.selector';
 
 function App() {
@@ -26,13 +22,7 @@ function App() {
     comedies,
     italianMovies,
     isLoading,
-  } = useSelector((state) => ({
-    isLoading: getMoviesLoadingState(state),
-    searchMovies: getSearchMovies(state),
-    dramas: getDramas(state),
-    comedies: getComedies(state),
-    italianMovies: getItalianMovies(state),
-  }));
+  } = useSelector(selectMoviesState);
 
   const onChange = (event) => {
     if (!event) {

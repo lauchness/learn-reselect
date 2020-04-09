@@ -16,4 +16,4 @@ const MoviesList = ({ data }) => {
   );
 };
 
-export default MoviesList;
+export default React.memo(MoviesList);
