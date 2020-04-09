@@ -20,7 +20,19 @@ import {
 function App() {
   const dispatch = useDispatch();
   const search = useSelector(getSearch);
-  const isLoading = useSelector(getMoviesLoadingState);
+  const {
+    searchMovies,
+    dramas,
+    comedies,
+    italianMovies,
+    isLoading,
+  } = useSelector((state) => ({
+    isLoading: getMoviesLoadingState(state),
+    searchMovies: getSearchMovies(state),
+    dramas: getDramas(state),
+    comedies: getComedies(state),
+    italianMovies: getItalianMovies(state),
+  }));
 
   const onChange = (event) => {
     if (!event) {
@@ -53,7 +65,7 @@ function App() {
       {isLoading && <div>loading...</div>}
       {!isLoading && (
         <>
-          {/* <MoviesList data={searchMovies} />
+          <MoviesList data={searchMovies} />
           <hr />
           <h2>Drama</h2>
           <MoviesList data={dramas} />
@@ -62,7 +74,7 @@ function App() {
           <MoviesList data={comedies} />
           <hr />
           <h2>Italian Films</h2>
-          <MoviesList data={italianMovies} /> */}
+          <MoviesList data={italianMovies} />
         </>
       )}
     </div>
