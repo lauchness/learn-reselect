@@ -12,11 +12,11 @@ Initially the app will be set up to display movies by category, and have a searc
 
 Each exercise will be outlined in a markdown file in the `/exercises` directory with the naming convention `<Exercise Number>.md`. The completed files will be stored in the `/final` as a reference for you as you work.
 
-
 ### TODO:
-1. implementing reselect -> moving to functions
-2. using createSelector
-3. flux
-4. redux basics
+
+1. ~~implementing reselect -> moving to functions~~
+2. ~~using createSelector~~
+3. ~~flux~~
+4. ~~redux basics~~
 5. redux thunk
 6. creating new slice of state
