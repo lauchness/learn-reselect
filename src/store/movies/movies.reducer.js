@@ -1,7 +1,23 @@
-import initialMovies from '../../data/movies.json';
+import {MoviesAction} from "./movies.actions";
 
-const movies = (state = initialMovies.slice(50), action) => {
+const initialMoviesState = {
+  isLoading: false,
+  list: []
+}
+
+const movies = (state = initialMoviesState, action) => {
   switch (action.type) {
+    case MoviesAction.LOAD_MOVIES:
+      return {
+        ...state,
+        isLoading: true
+      }
+    case MoviesAction.LOAD_MOVIES_SUCCESSFUL:
+      return {
+        ...state,
+        list: action.movies,
+        isLoading: false
+      }
     default:
       return state;
   }
