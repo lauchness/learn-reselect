@@ -1,1 +1,1 @@
-export const getSearch = (state) => state.search;
+export const getSearch = (state) => state.search.term;

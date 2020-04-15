@@ -1,10 +1,14 @@
-const SEARCH_SET_TERM = 'SEARCH_SET_TERM';
 
-const searchSetTerm = term => ({
-  type: SEARCH_SET_TERM,
-  payload: {
-    term
-  }
+export const SearchAction = {
+  SET_TERM: 'SEARCH_SET_TERM',
+  SET_TERM_SUCCESSFUL: 'SEARCH_SET_TERM_SUCCESSFUL'
+}
+
+export const searchSetTerm = () => ({
+  type: SearchAction.SET_TERM
 });
 
-export { SEARCH_SET_TERM, searchSetTerm };
+export const searchSetTermSuccessful = term => ({
+  type: SearchAction.SET_TERM_SUCCESSFUL,
+  term
+});

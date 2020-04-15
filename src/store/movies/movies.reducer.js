@@ -2,8 +2,9 @@ import {MoviesAction} from "./movies.actions";
 
 const initialMoviesState = {
   isLoading: false,
-  list: []
-}
+  list: [],
+  error: null
+};
 
 const movies = (state = initialMoviesState, action) => {
   switch (action.type) {
@@ -11,13 +12,18 @@ const movies = (state = initialMoviesState, action) => {
       return {
         ...state,
         isLoading: true
-      }
+      };
     case MoviesAction.LOAD_MOVIES_SUCCESSFUL:
       return {
         ...state,
         list: action.movies,
         isLoading: false
-      }
+      };
+    case MoviesAction.LOAD_MOVIES_ERROR:
+      return {
+          ...state,
+        error: action.message
+      };
     default:
       return state;
   }

@@ -4,14 +4,11 @@ import { useSelector, useDispatch } from 'react-redux';
 import './App.css';
 import { getSearch } from './store/search/search.selector';
 import MoviesList from './components/MoviesList';
-import { searchSetTerm } from './store/search/search.actions';
-import {
-  loadMovies,
-  loadMoviesSuccessful,
-} from './store/movies/movies.actions';
 import {
   selectMoviesState
 } from './store/movies/movies.selector';
+import {fetchMovies} from "./store/movies/movies.thunk";
+import { searchMoviesByTerm } from "./store/search/search.thunk";
 
 function App() {
   const dispatch = useDispatch();
@@ -28,16 +25,11 @@ function App() {
     if (!event) {
       return;
     }
-    dispatch(searchSetTerm(event.target.value));
+    dispatch(searchMoviesByTerm(event.target.value));
   };
 
   useEffect(() => {
-    dispatch(loadMovies());
-    fetch('./movies.json', {
-      mode: 'no-cors',
-    })
-      .then((res) => res.json())
-      .then((movies) => dispatch(loadMoviesSuccessful(movies)));
+    dispatch(fetchMovies())
   }, [dispatch]);
 
   return (

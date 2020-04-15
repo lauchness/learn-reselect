@@ -1,12 +1,24 @@
-import { SEARCH_SET_TERM } from './search.actions';
+import { SearchAction} from './search.actions';
 
-const initalSearch = '';
+const initalSearch = {
+  isLoading: false,
+  term: ''
+};
 
 const searchReducer = (state = initalSearch, action) => {
   const { type, payload } = action;
   switch (type) {
-    case SEARCH_SET_TERM:
-      return payload.term;
+    case SearchAction.SET_TERM:
+      return {
+        ...state,
+        isLoading: true
+      };
+    case SearchAction.SET_TERM_SUCCESSFUL:
+      return {
+        ...state,
+        isLoading: false,
+        term: action.term
+      };
     default:
       return state;
   }
